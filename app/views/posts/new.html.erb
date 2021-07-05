@@ -1,2 +1,18 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>New投稿フォーム</h1>
+<%= form_with model: @post, local:true do |f| %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  
+  <h4>カテゴリー</h4>
+  <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
+  
+  <h4>place名</h4>
+  <%= f.text_field :place %>
+  
+  
+  <h4>住所</h4>
+  <%= f.text_field :address %>
+  
+  <h4>説明</h4>
+  <%= f.text_field :introduction %>
+

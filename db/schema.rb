@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_04_105424) do
+ActiveRecord::Schema.define(version: 2021_07_05_151154) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_07_04_105424) do
     t.integer "category_id", null: false
     t.string "place", null: false
     t.text "introduction", null: false
-    t.string "image"
+    t.string "image_id"
     t.string "address", null: false
     t.float "latitude", null: false
     t.float "longitude", null: false
