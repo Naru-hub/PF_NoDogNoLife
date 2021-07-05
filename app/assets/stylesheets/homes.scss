@@ -7,15 +7,20 @@
 }
 
 .back {
-  // position: fixed;
-  // width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100vh;
+  height: 100vh;//topの画像フルスクリーン
   background-image: url(background.jpg);
+  
 }
 
-.display-3 {
+.title {
   color: #fff;
+
+}
+
+.top {
+  height: 100vh;//親要素の高さ
+  background-color: rgba( 0, 0, 0, 0.1); // 透明度を少し暗くする
 }
