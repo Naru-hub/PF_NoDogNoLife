@@ -11,3 +11,5 @@ Category.create!(name: "公園")
 Category.create!(name: "施設")
 
 Category.create!(name: "お店")
+
+Category.create!(name: "自然")

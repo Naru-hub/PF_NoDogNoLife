@@ -1,26 +1,25 @@
+
 <div class="row">
-  <div class="col-lg-7">
-    <div><%= attachment_image_tag @post_image, :image %></div>
+  <div class="col-lg-4 offset-1 py-4">
+    <div><%= attachment_image_tag @post, :image, class: "img-fluid rounded align-self-center", fallback: "no_image.jpg" %></div>
   </div>
-  <div class="col-lg-5">
-    名前<%= @post.user.name %>
-    カテゴリー<%= @post.category_id %>
-    ワンちゃんのサイズ<%= @post.dog_size %>
-    説明<%= @post.introduction %>
+  <div class="col-lg-4 offset-2 py-4">
+    <div>名前<%= @post.user.name %></div>
+    <div>カテゴリー <%= @post.category.name %></div>
+    <div>ワンちゃんのサイズ <%= @post.dog_size %></div>
+    <div>説明 <%= @post.introduction %></div>
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-4">
+  <div class="col-lg-4 offset-1 py-4">
     <!--map-->
   </div>
-  <div class="col-lg-8">
-    place名<%= @post.place %>
-    住所<%= @post.address %>
-    投稿日時<%= @post.created_at.strftime('%Y/%m/%d') %>
-    <%= link_to "投稿編集", edit_post_path(@post) %>
-    <%= if @post.user == current_user %>
-      <%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %>
-    <% end %>  
+  <div class="col-lg-4 offset-1 py-4">
+    <div>place名 <%= @post.place %></div>
+    <div>住所 <%= @post.address %></div>
+    <div>投稿日時<%= @post.created_at.strftime('%Y/%m/%d') %></div>
+    <div><%= link_to "投稿編集", edit_post_path(@post), class: "btn btn-success" %></div>
+    <div><%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %></div>
   </div>
-    
+
 </div>
