@@ -1,2 +1,13 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="row d-flex">
+    <% @posts.each do |post| %>
+          <div class="card" w-100 style="width: 25rem;" >
+            <%= attachment_image_tag post, :image, fallback:"no_image.jpg", size: "200x350", class: "card-img-png" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= post.place %></h5>
+            <p class="card-text"><%= post.introduction %></p>
+          </div>
+      <% end %>
+        </div>
+      </div>
+    </div>
+</div>
