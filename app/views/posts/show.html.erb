@@ -1,2 +1,26 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row">
+  <div class="col-lg-7">
+    <div><%= attachment_image_tag @post_image, :image %></div>
+  </div>
+  <div class="col-lg-5">
+    名前<%= @post.user.name %>
+    カテゴリー<%= @post.category_id %>
+    ワンちゃんのサイズ<%= @post.dog_size %>
+    説明<%= @post.introduction %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <!--map-->
+  </div>
+  <div class="col-lg-8">
+    place名<%= @post.place %>
+    住所<%= @post.address %>
+    投稿日時<%= @post.created_at.strftime('%Y/%m/%d') %>
+    <%= link_to "投稿編集", edit_post_path(@post) %>
+    <%= if @post.user == current_user %>
+      <%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %>
+    <% end %>  
+  </div>
+    
+</div>
