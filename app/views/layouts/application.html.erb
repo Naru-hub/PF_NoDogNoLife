@@ -14,18 +14,12 @@
     <%= render 'layouts/header' %>
     
     <div class=".container-fluid">
-      <%= yield %>
+      <div class="main-height">
+        <%= yield %>
+      </div>  
     </div>  
-      <footer>
-        <div class=".container-fluid bg-dark">
-          <div class="row">
-            <div class="mx-auto">
-              <div class="mx-auto pt-2 d-flex align-items-center">
-                <p class="footer-text">© All rights reserved by HappyDog.Inc.</p>
-              </div>
-            </div>
-          </div>
-        </div>  
-      </footer>
+    
+    <%= render 'layouts/footer' %>
+     
   </body>
 </html>
