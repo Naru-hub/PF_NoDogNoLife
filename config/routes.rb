@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'users/confirm' => 'users#confirm'
   patch 'users/out' => 'users#out'
   resources :posts
-  resources :dogs, only: [:index,  :create, :destroy]
+  resources :dogs, only: [:show,  :create, :destroy]
   get 'searches' => 'seaches#search'
   root to: 'homes#top'
 end

@@ -6,6 +6,9 @@
           <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-edit"></i>
           <% end %>
+          <%= link_to dog_path(@user.dogs), class: "btn btn-outline-secondary btn-block" do %>
+            <i class="fas fa-paw"></i>
+          <% end %>
         </div>
       </div>
   </div>
