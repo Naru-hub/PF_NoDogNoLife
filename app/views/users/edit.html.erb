@@ -1,2 +1,27 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-6 mx-auto py-5">
+    <h1>User情報更新フォーム</h1>
+      <%= form_with model: @user, local:true do |f| %>
+
+        <div class="form-group">
+          <h4>画像</h4>
+          <%= f.attachment_field :profile_image, class: "form-control-file", size: "100x100", fallback: "no_image.jpg" %>
+        </div>
+
+        <div class="form-group">
+          <h4>名前</h4>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <h4>email</h4>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "更新", class: "btn btn-primary mt-3" %>
+        </div>
+
+      <% end %>
+  </div>
+</div>
