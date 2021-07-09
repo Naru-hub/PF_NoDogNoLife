@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -35,6 +35,10 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     redirect_to posts_path
+  end
+
+  def search
+    @posts = Post.search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   private

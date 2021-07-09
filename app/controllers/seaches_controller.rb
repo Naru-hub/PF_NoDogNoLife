@@ -1,3 +1,0 @@
-class SeachesController < ApplicationController
-  
-end

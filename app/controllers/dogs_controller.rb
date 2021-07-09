@@ -15,7 +15,7 @@ class DogsController < ApplicationController
       redirect_to dog_path(@dog)
     else
       @dogs = Dog.all
-      render 'index'
+      render 'show'
     end
   end
 

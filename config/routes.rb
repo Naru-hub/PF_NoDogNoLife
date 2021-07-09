@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update]
   get 'users/confirm' => 'users#confirm'
   patch 'users/out' => 'users#out'
-  resources :posts
+  resources :posts, shallow: true do
+    collection do
+      get :search
+    end
+  end  
+  
   resources :dogs, only: [:show,  :create, :destroy]
-  get 'searches' => 'seaches#search'
+ 
   root to: 'homes#top'
 end
