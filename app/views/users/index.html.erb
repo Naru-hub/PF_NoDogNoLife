@@ -2,27 +2,31 @@
   <div class="col-md-1"></div>
   <h1>User一覧</h1>
 </div>
-  <div class="row">
-      <div class="col-md-8 offset-1">
-        <table class="table table-borderless table-hover">
-          <tbody>
-            <% @users.each do |user| %>
-              <tr>
-                <td style="width: 40%">
-                  <%= link_to user_path(user) do %>
-                    <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "100x100", class: "rounded-circle" %>
-                  <% end %>
-                </td>
-                <td style="width: 30%">
-                  <%= user.name %>
-                </td>
-                <td style="width: 300%">
-                  投稿数 <%= user.posts.count %>
-                </td>
-                <td></td>
-              </tr>
-            <% end %>    
-          </tbody>
-        </table>
-      </div>
+<div class="row">
+    <div class="col-md-8 offset-1">
+      <table class="table table-borderless table-hover">
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td style="width: 40%">
+                <%= link_to user_path(user) do %>
+                  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "100x100", class: "rounded-circle" %>
+                <% end %>
+              </td>
+              <td style="width: 30%">
+                <%= user.name %>
+              </td>
+              <td style="width: 300%">
+                投稿数 <%= user.posts.count %>
+              </td>
+              <td></td>
+            </tr>
+          <% end %>    
+        </tbody>
+      </table>
     </div>
+</div>
+<div class="row">
+  <div class="col-5"></div>
+  <div class="col-6 mt-3"><%= paginate @users %></div>
+</div>
