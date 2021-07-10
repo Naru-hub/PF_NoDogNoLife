@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-
+  devise_for :users, :controllers => {
+  :registrations => "users/registrations"
+  }
   get 'dogs/index'
-  devise_for :users
+  
   get 'about' => 'homes#about'
   resources :users, only: [:index, :show, :edit, :update]
   get 'users/confirm' => 'users#confirm'

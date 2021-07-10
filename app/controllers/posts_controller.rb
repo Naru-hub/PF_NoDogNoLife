@@ -39,13 +39,18 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(10)
-    @category = Category.find_by(id: params[:category_id])
+    if params[:category_id].present?
+      @posts = @posts.where(category_id: params[:category_id])
+    end
+    if params[:dog_size].present?
+      @posts = @posts.where(dog_size: params[:dog_size])
+    end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:image, :category_id, :place, :address, :introduction, :dog_size)
+    params.require(:post).permit(:image, :category_id, :place, :address, :introduction, :dog_size, :latitude, :longitude)
   end
 
 end
