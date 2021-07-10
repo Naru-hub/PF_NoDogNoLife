@@ -11,7 +11,7 @@ class User < ApplicationRecord
   
     def self.search(search)
     if search != ""
-      @posts = User.join(:dogs).where("dogs.name LIKE? OR dogs.dog_type LIKE?", "%#{search}%", "%#{search}%")
+      @posts = User.joins(:dogs).where("dogs.dog_size LIKE? OR dogs.dog_type LIKE?", "%#{search}%", "%#{search}%")
     else
       Post.all
     end

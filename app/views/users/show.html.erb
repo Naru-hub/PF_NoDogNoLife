@@ -1,18 +1,22 @@
 <div class="row">
-  <div class="col-4 offset-1 mt-4">
+  <div class="col-4 offset-1 my-5">
     <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "200x200", class: "rounded-circle" %>
       <div class="row mt-5">
-        <div class="col-4 mb-2">
+        <div class="col-4 my-4">
           <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-edit"></i>
           <% end %>
+        </div>
+      </div>  
+      <div class="row mt-2">
+        <div class="col-4 mb-4">
           <%= link_to dog_path(@dogs), class: "btn btn-outline-info btn-block" do %>
             <i class="fas fa-paw"></i>
           <% end %>
         </div>
       </div>
   </div>
-  <div class="col-6 mt-5">
+  <div class="col-6 my-5">
      <table class="table table-borderless">
         <tr>
           <td style="width: 20%" >名前</td>
@@ -27,10 +31,10 @@
     </table>
   </div>
 </div>
-
-  <div class="col-11 offset-1 mt-3">
-    <h4 class="">投稿一覧</h4>
-      <table class="table">
+<div class="row">
+  <div class="col-11 offset-1 my-2">
+    <h4 class="my-2">投稿一覧</h4>
+      <table class="table my-5">
         <thead>
           <tr>
             <th></th>
@@ -56,7 +60,8 @@
         <% end %>    
       </table>
   </div>
-  <div class="row">
-  <div class="col-5"></div>
-  <div class="col-6"><%= paginate @posts %></div>
+  <div class="row my-3">
+    <div class="col-5"></div>
+    <div class="col-6"><%= paginate @posts %></div>
+  </div>
 </div>

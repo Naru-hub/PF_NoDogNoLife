@@ -26,6 +26,17 @@ class UsersController < ApplicationController
      render :edit
     end
   end
+  
+  def search
+    @users = User.search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(6)
+    if params[:dog_size].present?
+      @user.dogs = @user.dogs.where(dog_size: params[:dog_size])
+    end
+    if params[:dog_type].present?
+      @user.dogs = @user.dogs.where(category_id: params[:dog_type])
+    end
+  end
+
 
   def confirm
   end
