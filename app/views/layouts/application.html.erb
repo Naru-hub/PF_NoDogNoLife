@@ -4,33 +4,23 @@
     <title>NoDogNoLife!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon.ico') %>
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="notification is-info">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="notification is-danger">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
-    
-    <%= render 'layouts/header' %>
-    
+     <%= render 'layouts/header' %>
+
     <div class=".container-fluid">
-      <div class="main-height">
+      <% if notice != nil %>
+        <p class="alert alert-success" role="alert"><%= notice %></p>
+      <% end %> 
+      
         <%= yield %>
-      </div>  
-    </div>  
-    
+    </div>
+
     <%= render 'layouts/footer' %>
-     
   </body>
 </html>

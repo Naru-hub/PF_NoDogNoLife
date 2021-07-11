@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if @user != current_user
-      redirect_to users_path, alert: '不正なアクセスです。'
+      redirect_to users_path
     end
   end
 
@@ -26,15 +26,9 @@ class UsersController < ApplicationController
      render :edit
     end
   end
-  
+
   def search
     @users = User.search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(6)
-    if params[:dog_size].present?
-      @user.dogs = @user.dogs.where(dog_size: params[:dog_size])
-    end
-    if params[:dog_type].present?
-      @user.dogs = @user.dogs.where(category_id: params[:dog_type])
-    end
   end
 
 

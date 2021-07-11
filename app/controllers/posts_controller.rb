@@ -12,8 +12,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post)
+    if @post.save
+      redirect_to post_path(@post), notice: "投稿が完了しました"
+    else
+      render :new
+    end
   end
 
   def show
@@ -23,12 +26,18 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user != current_user
+      redirect_to posts_path
+    end
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_path(post)
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(@post), notice: "投稿の編集が完了しました"
+    else
+      render "edit"
+    end
   end
 
   def destroy

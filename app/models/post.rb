@@ -13,4 +13,13 @@ class Post < ApplicationRecord
     end
   end
   
+  with_options presence: true do
+    validates :place
+    validates :introduction
+    validates :address
+    validates :latitude
+    validates :longitude
+    validates :dog_size
+  end
+  
 end

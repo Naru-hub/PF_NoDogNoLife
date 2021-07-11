@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-6 mx-auto py-5">
     <h1>User情報更新フォーム</h1>
+      <%= render 'layouts/errors', obj: @user %>
       <%= form_with model: @user, local:true do |f| %>
 
         <div class="form-group">
