@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'users/confirm' => 'users#confirm'
   patch 'users/out' => 'users#out'
   resources :posts, shallow: true do
+    resources :post_comments, only: [:create, :destroy]
     collection do
       get :search
     end
