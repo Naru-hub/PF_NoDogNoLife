@@ -34,7 +34,7 @@
   
           <div class="form-group my-3">
             <h4 class="my-4">犬のサイズ</h4>
-            <!--gemのenum-help使ってない時の書き方-->
+            <!--gemのenum-helpを使っていない時の書き方-->
             <%= f.select :dog_size, Post.dog_sizes.keys.map {|k| [k, k]}, {}, { class: 'form-control', style: 'margin-bottom: 15px;', data: {} } %>
           </div>
   

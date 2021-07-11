@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-lg-4 offset-1 py-5">
+  <div class="col-md-5 offset-1 py-5">
     <div class="mb-5"><%= attachment_image_tag @post, :image, class: "img-fluid rounded align-self-center", fallback: "no_image.jpg" %></div>
     <div id=map></div>
   </div>
-    <div class="col-lg-5 offset-1 py-5">
+    <div class="col-md-5 offset-1 py-5">
       <div class="row">
         <div class="col-10">
           <table class="table">
@@ -45,27 +45,13 @@
             <% end %>
           </table>
         
-          <table class="table table-borderless">
-            <tr>
-              <td>コメント件数：<%= @post.post_comments.count %></td>
-            </tr>
-            <% @post.post_comments.each do |post_comment| %>
-              <tr>
-                <td><%= post_comment.user.name %></td>
-                <td><%= post_comment.comment %></td>
-                <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
-                <% if post_comment.user == current_user %>
-                  <td>
-                    <%= link_to "削除",  post_comment_path(post_comment), method: :delete %>
-                  </div>
-                <% end %>
-              </tr>
-            <% end %>  
-          </table>
+          <div class="comment_index">
+            <%= render 'post_comments/comment_index', post: @post %>
+          </div>
 
-          <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
+          <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
             <div class="form-group">
-                <%= f.text_area :comment, rows:'3',placeholder: "コメントをここに", class: "form-control" %>
+                <%= f.text_area :comment, rows:'3',placeholder: "コメントをここに", class: "form-control text_area" %>
             </div>
             <div class="form-group">
               <%= f.submit "コメントする", class: "btn btn-info btn-sm" %>

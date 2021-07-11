@@ -3,25 +3,25 @@ Rails.application.routes.draw do
   :registrations => "users/registrations"
   }
   get 'dogs/index'
-  
+
   get 'about' => 'homes#about'
-  resources :users, only: [:index, :show, :edit, :update],
-  shallow: true do
+  resources :users, only: [:index, :show, :edit, :update] do
     collection do
       get :search
     end
-  end  
-  
+  end
+
   get 'users/confirm' => 'users#confirm'
   patch 'users/out' => 'users#out'
-  resources :posts, shallow: true do
+  resources :posts do
     resources :post_comments, only: [:create, :destroy]
     collection do
       get :search
+      end
     end
-  end  
-  
+
+
   resources :dogs, only: [:show,  :create, :destroy]
- 
+
   root to: 'homes#top'
 end
