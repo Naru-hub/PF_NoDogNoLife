@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   patch 'users/out' => 'users#out'
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
     collection do
       get :search
       end

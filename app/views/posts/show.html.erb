@@ -36,15 +36,19 @@
               <td style="width: 30%">投稿日時</td>
               <td style="width: 70%"><%= @post.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
-            
+
             <% if @user.id == current_user.id %>
               <tr>
                 <td style="width: 40%"><%= link_to "投稿編集", edit_post_path(@post), class: "btn btn-success" %></td>
                 <td style="width: 60%"><%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %></td>
-              </tr>  
+              </tr>
             <% end %>
           </table>
-        
+
+          <div id="favorite-btn<%= @post.id %>">
+            <%= render 'favorites/favorite_btn', post: @post %>
+          </div>
+
           <div class="comment_index">
             <%= render 'post_comments/comment_index', post: @post %>
           </div>
