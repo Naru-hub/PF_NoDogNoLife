@@ -18,6 +18,12 @@ class DogsController < ApplicationController
       render 'show'
     end
   end
+  
+  def destroy
+    dog = Dog.find(params[:id])
+    dog.destroy
+    redirect_to request.referer
+  end
 
   private
 

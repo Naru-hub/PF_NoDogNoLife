@@ -44,6 +44,7 @@
           <th>名前</th>
           <th>犬種</th>
           <th>大きさ</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -53,6 +54,7 @@
             <td><%= dog.name %>ちゃん</td>
             <td><%= dog.dog_type %></td>
             <td><%= dog.dog_size %></td>
+            <td><%= link_to "削除", dog_path(dog), method: :delete,class: "btn btn-danger", data: { confirm: "本当にワンちゃん情報を削除しますか？" } %></td>
           </tr>
         <% end %>
       </tbody>
