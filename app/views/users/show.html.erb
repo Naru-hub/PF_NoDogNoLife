@@ -1,35 +1,46 @@
 
 <div class="row">
-  <div class="col-md-5 offset-1 my-5">
-    <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "200x200", class: "rounded-circle" %>
+  <div class="col-md-10 col-lg-3 offset-md-2 my-5">
+    <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "300x300", class: "rounded-circle" %>
       <div class="row mt-5">
-        <div class="col-4 my-4">
+        <div class="col-md-5 col-lg-5 ml-lg-5 my-4">
           <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-edit"></i>
           <% end %>
         </div>
       </div>
       <div class="row mt-2">
-        <div class="col-md-4 mb-4">
+        <div class="col-md-5 col-lg-5 ml-lg-5 mb-4">
           <%= link_to dog_path(@dogs), class: "btn btn-outline-info btn-block" do %>
             <i class="fas fa-paw"></i>
           <% end %>
         </div>
       </div>
   </div>
-  <div class="col-md-6 my-5">
-     <table class="table table-borderless">
-        <tr>
-          <td style="width: 20%" >名前</td>
-          <td style="width: 80%"><%= @user.name %></td>
-        </tr>
+  <div class="col-md-8 col-lg-5 offset-md-1 my-5">
+    <div class="row mb-4">
+          <div class="col-md-3">名前</div>
+          <div class="col-md-3"><%= @user.name %></div>
+          <% if current_user.following?(@user) %>
+              <div class="col-md-3"><%= link_to "フォロー外す", user_relationships_path(@user.user_id), method: :delete, class: "btn btn-primary" %></div>
+          <% else %>
+              <div class="col-md-3"><%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success btn-sm" %></div>
+          <% end %>
+    </div>      
+    <div class="row mb-4">
+      <div class="col-md-3">フォロー数</div>
+      <div class="col-md-3"><%= link_to @user.followings.count, user_followings_path(user_id: @user.id) %></div>
+      <div class="col-md-3">フォロワー数</div>
+      <div class="col-md-3"><%= link_to @user.followers.count, user_followers_path(user_id: @user.id) %></div>
+    </div> 
+    <div class="row">
       <% @dogs.each do |dog| %>
-        <tr>
-          <td>ワンちゃん情報</td>
-          <td><%= dog.name %>ちゃん　　<%= dog.dog_type %>　　<%= dog.dog_size %></td>
-        </tr>
+        <div class="col-md-3 mb-2">ワンちゃん名</div>
+        <div class="col-md-3 mb-2"><%= dog.name %>ちゃん</div>
+        <div class="col-md-3 mb-2"><%= dog.dog_type %></div>
+        <div class="col-md-3 mb-2"><%= dog.dog_size %></div>
       <% end %>
-    </table>
+    </div>
   </div>
 </div>
 <div class="row">
@@ -60,9 +71,9 @@
           </tbody>
         <% end %>
       </table>
-    </div>  
+    </div>
   </div>
-  
+
 <div class="row my-3">
   <div class="col-4 col-md-4 col-lg-5"></div>
   <div class="col-4 col-md-4"><%= paginate @posts %></div>
