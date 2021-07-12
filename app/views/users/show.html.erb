@@ -2,20 +2,22 @@
 <div class="row">
   <div class="col-md-10 col-lg-3 offset-md-2 my-5">
     <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "300x300", class: "rounded-circle" %>
-      <div class="row mt-5">
-        <div class="col-md-5 col-lg-5 ml-lg-5 my-4">
-          <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fas fa-user-edit"></i>
-          <% end %>
+      <% if @user == current_user %>
+        <div class="row mt-5">
+          <div class="col-md-5 col-lg-5 ml-lg-5 my-4">
+            <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
+              <i class="fas fa-user-edit"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-5 col-lg-5 ml-lg-5 mb-4">
-          <%= link_to dog_path(@dogs), class: "btn btn-outline-info btn-block" do %>
-            <i class="fas fa-paw"></i>
-          <% end %>
+        <div class="row mt-2">
+          <div class="col-md-5 col-lg-5 ml-lg-5 mb-4">
+            <%= link_to dog_path(@dogs), class: "btn btn-outline-info btn-block" do %>
+              <i class="fas fa-paw"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>  
   </div>
   <div class="col-md-8 col-lg-5 offset-md-1 my-5">
     <div class="row mb-4">
@@ -45,6 +47,7 @@
     </div>
   </div>
 </div>
+  
 <div class="row">
   <div class="col-md-11 offset-1 my-2">
     <h4 class="my-2">投稿一覧</h4>

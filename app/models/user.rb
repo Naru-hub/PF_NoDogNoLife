@@ -56,11 +56,16 @@ class User < ApplicationRecord
   end
 
   # ゲストログイン用のメソッド
-   def self.guest
+  def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲスト"
     end
+  end
+  
+  # 退会済みのユーザーが同じアカウントでログイン出来ないように制約、is_deletedがfalseならtrueを返す
+  def active_for_authentication?
+    super && (is_deleted == false)
   end
 
 
