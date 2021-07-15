@@ -13,6 +13,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :profile_image, :is_deleted)
+    params.require(:user).permit(:is_deleted)
   end
 end

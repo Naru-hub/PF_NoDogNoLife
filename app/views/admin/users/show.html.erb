@@ -11,9 +11,9 @@
     </div>
     <div class="row mb-4">
       <div class="col-md-3">フォロー数</div>
-      <div class="col-md-3"><%= link_to @user.followings.count, user_followings_path(user_id: @user.id) %></div>
+      <div class="col-md-3"><%= @user.followings.count %></div>
       <div class="col-md-3">フォロワー数</div>
-      <div class="col-md-3"><%= link_to @user.followers.count, user_followers_path(user_id: @user.id) %></div>
+      <div class="col-md-3"><%= @user.followers.count %></div>
     </div>
 
     <div class="row mb-4">
@@ -29,8 +29,6 @@
               <%= f.radio_button :is_deleted, true %>
               <%= f.label :is_deleted, "退会", value:true %>
             </div>
-         
-       
             <div class="col-md-4">
               <%= f.submit "変更を保存", class: "btn btn-success btn-sm" %>
             </div>  

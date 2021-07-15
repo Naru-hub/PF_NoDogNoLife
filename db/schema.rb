@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_07_14_050538) do
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.integer "dog_size", default: 0, null: false
+    t.boolean "report", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

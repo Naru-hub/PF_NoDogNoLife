@@ -10,7 +10,7 @@
             <th>date</th>
             <th>name</th>
             <th>is_deleted</th>
-            <th></th>
+            <th>report</th>
           </tr>
         </thead>
         <% @posts.each do |post| %>
@@ -19,7 +19,7 @@
               <td style="width: 15%">
                 <%= attachment_image_tag post, :image, fallback: "no_image.jpg",  size: "100x100" %>
               </td>
-              <td style="width: 15%"><%= post.place %></td>
+              <td style="width: 15%"><%= link_to post.place, admin_post_path(post) %></td>
               <td style="width: 15%"><%= post.created_at.strftime('%Y/%m/%d') %></td>
               <td style="width: 15%">
                 <%= link_to post.user.name, admin_user_path(post.user) %>
@@ -31,7 +31,12 @@
                   <p class="text-danger">退会</p>
                 <% end %>
               </td>
-              <td style="width: 15%"><%= link_to "投稿削除", admin_post_path(post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %></td>
+              <td style="width: 15%">
+                <% if post.report == false %>
+                  <p class="text-success">問題無し</p>
+                  <% else %>
+                  <p class="text-danger">問題あり</p>
+                <% end %></td>
             </tr>
           </tbody>
         <% end %>
