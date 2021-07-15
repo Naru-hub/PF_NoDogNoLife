@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   # 管理者関連
   namespace :admin do
   patch 'users/out' => 'users#out'
-  resources :posts, only: [:index, :show, :destroy]
+  resources :posts, only: [:index, :destroy]
+  resources :users, only: [:show, :update ]
   end
 
    # user関連

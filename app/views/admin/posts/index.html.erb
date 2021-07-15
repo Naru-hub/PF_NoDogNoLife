@@ -10,25 +10,28 @@
             <th>date</th>
             <th>name</th>
             <th>is_deleted</th>
+            <th></th>
           </tr>
         </thead>
         <% @posts.each do |post| %>
           <tbody>
             <tr>
-              <td style="width: 20%">
+              <td style="width: 15%">
                 <%= attachment_image_tag post, :image, fallback: "no_image.jpg",  size: "100x100" %>
               </td>
-              <td style="width: 10%"><%= post.place %></td>
-              <td style="width: 10%"><%= post.created_at.strftime('%Y/%m/%d') %></td>
-              <td style="width: 10%"><%= post.user.name %></td>
-              <td style="width: 10%">
+              <td style="width: 15%"><%= post.place %></td>
+              <td style="width: 15%"><%= post.created_at.strftime('%Y/%m/%d') %></td>
+              <td style="width: 15%">
+                <%= link_to post.user.name, admin_user_path(post.user) %>
+              </td>
+              <td style="width: 15%">
                 <% if post.user.is_deleted == false %>
                   <p class="text-success">有効</p>
                   <% else %>
                   <p class="text-danger">退会</p>
                 <% end %>
               </td>
-              <td style="width: 10%"><%= link_to "投稿削除", admin_post_path(post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %></td>
+              <td style="width: 15%"><%= link_to "投稿削除", admin_post_path(post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %></td>
             </tr>
           </tbody>
         <% end %>
