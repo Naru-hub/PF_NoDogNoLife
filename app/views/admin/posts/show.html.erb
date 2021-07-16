@@ -8,20 +8,16 @@
           <table class="table">
             <tr>
               <td style="width: 30%" >名前</td>
-              <td style="width: 70%"><%= link_to @post.user.name, admin_user_path(@user) %></td>
+              <td style="width: 70%"><%= link_to @post.user.name, admin_user_path(@post.user) %></td>
             </tr>
             <tr></tr>
             <tr>
-              <td style="width: 30%">大きさ</td>
-              <td style="width: 70%"><%= @post.dog_size %>まで利用可能</td>
+              <td style="width: 30%">カテゴリー</td>
+              <td style="width: 70%"><%= @post.category.name %></td>
             </tr>
             <tr>
               <td style="width: 30%">place名</td>
               <td style="width: 70%"><%= @post.place %></td>
-            </tr>
-            <tr>
-              <td style="width: 30%">カテゴリー</td>
-              <td style="width: 70%"><%= @post.category.name %></td>
             </tr>
             <tr>
               <td style="width: 30%">住所</td>
@@ -30,6 +26,10 @@
             <tr>
               <td style="width: 30%">説明</td>
               <td style="width: 70%"><p class="text-break"> <%= @post.introduction %></td>
+            </tr>
+            <tr>
+              <td style="width: 30%">大きさ</td>
+              <td style="width: 70%"><%= @post.dog_size %>まで利用可能</td>
             </tr>
             <tr>
               <td style="width: 30%">投稿日時</td>
@@ -50,13 +50,14 @@
             <%= render 'user/post_comments/comment_index', post: @post %>
           </div>
 
-
+           
             <div class="row">
-              <div class="col-md-4 offset-8">
-                <% if @post.report %>
-                  <%= link_to '問題無しにする', admin_post_path(@post.id, post: {report: false}), method: :put, class: "btn btn-success btn-sm" %>
-                <% else %>
-                  <%= link_to '問題ありにする', admin_post_path(@post.id, post: {report: true}), method: :put, class: "btn btn-danger btn-sm" %>
+               <div class="col-md-2 offset-1">
+                通報数 : <%= @post.reports.count %>
+              </div>
+              <div class="col-md-4 offset-5">
+                <% unless @post.reports.ids == nil %>
+                  <%= link_to '問題無しにする', admin_post_reports_path(post_id: @post.id ), method: :delete, class: "btn btn-success btn-sm" %>
                 <% end %>
               </div>
             </div>

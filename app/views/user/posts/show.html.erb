@@ -64,10 +64,8 @@
           <% if @user.id != current_user.id %>
             <div class="row">
               <div class="col-md-3 offset-9">
-                <% if @post.report %>
-                  <%= link_to '通報を戻す', post_path(@post.id, post: {report: false}), method: :put, class: "btn btn-danger btn-sm" %>
-                <% else %>
-                  <%= link_to '通報する', post_path(@post.id, post: {report: true}), method: :put, class: "btn btn-danger btn-sm" %>
+                <% if @post.reported_by?(current_user) %>
+                  <%= link_to '通報する', post_reports_path(@post.id), method: :post, class: "btn btn-danger btn-sm", data: { confirm: "不適切な表現の投稿として通報しますか？" } %>
                 <% end %>
               </div>
             </div>
