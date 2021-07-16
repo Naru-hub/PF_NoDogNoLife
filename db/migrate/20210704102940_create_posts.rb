@@ -5,11 +5,12 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :category_id, null: false
       t.string :place,        null: false
       t.text :introduction,   null: false
-      t.string :image
+      t.string :image_id
       t.string :address,      null: false
       t.float :latitude,      null: false
       t.float :longitude,     null: false
       t.integer :dog_size,    null: false, default: 0
+      t.boolean :report,      null: false,default: false
 
       t.timestamps
     end

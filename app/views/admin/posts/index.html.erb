@@ -1,0 +1,50 @@
+
+<div class="row">
+  <div class="col-md-12 my-2">
+    <h4 class="my-2">投稿一覧</h4>
+      <table class="table my-5">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>place</th>
+            <th>date</th>
+            <th>name</th>
+            <th>is_deleted</th>
+            <th>report</th>
+          </tr>
+        </thead>
+        <% @posts.each do |post| %>
+          <tbody>
+            <tr>
+              <td style="width: 15%">
+                <%= attachment_image_tag post, :image, fallback: "no_image.jpg",  size: "100x100" %>
+              </td>
+              <td style="width: 15%"><%= link_to post.place, admin_post_path(post) %></td>
+              <td style="width: 15%"><%= post.created_at.strftime('%Y/%m/%d') %></td>
+              <td style="width: 15%">
+                <%= link_to post.user.name, admin_user_path(post.user) %>
+              </td>
+              <td style="width: 15%">
+                <% if post.user.is_deleted == false %>
+                  <p class="text-success">有効</p>
+                  <% else %>
+                  <p class="text-danger">退会</p>
+                <% end %>
+              </td>
+              <td style="width: 15%">
+                <% if post.report == false %>
+                  <p class="text-success">問題無し</p>
+                  <% else %>
+                  <p class="text-danger">問題あり</p>
+                <% end %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+<div class="row my-3">
+  <div class="col-4 col-md-4 col-lg-5"></div>
+  <div class="col-4 col-md-4"><%= paginate @posts %></div>
+</div>

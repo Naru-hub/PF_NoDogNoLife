@@ -13,3 +13,7 @@ Category.create!(name: "施設")
 Category.create!(name: "お店")
 
 Category.create!(name: "自然")
+
+Admin.create!(email: "admin@test.com",
+              password: "admintest",
+              password_confirmation: "admintest")
