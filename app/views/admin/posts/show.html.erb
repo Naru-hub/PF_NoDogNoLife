@@ -47,13 +47,17 @@
 
            
           <div class="row">
-             <div class="col-md-2 offset-1">
+             <div class="col-md-4">
               通報数 : <%= @post.reports.count %>
             </div>
-            <div class="col-md-4 offset-5">
-              <% if @post.reports.ids.present? %>
-                <%= link_to '問題無しにする', admin_post_reports_path(post_id: @post.id ), method: :delete, class: "btn btn-success btn-sm" %>
-              <% end %>
+          </div>   
+            
+          
+          <div class="row">
+            <div class="col-md-3">
+             <% @post.reports.last(10).each do |report| %>
+               <%= report.user.name %>
+             <% end %>
             </div>
           </div>
         </div>

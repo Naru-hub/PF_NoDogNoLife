@@ -33,8 +33,7 @@
               <%= f.submit "変更を保存", class: "btn btn-pink btn-sm" %>
             </div>
           </div>
-          <div class="col-md-４">通報した数 : <%= @user.reports.count %></div>
-        <!--%= @user.posts.find_by(report_id: @user.report_ids) %>-->
+          <div class="col-md-４">通報した投稿数 : <%= @user.reports.count %></div>
         </div>
 
       <% end %>

@@ -65,7 +65,7 @@
             <div class="row">
               <div class="col-md-3 offset-9">
                 <% if @post.reported_by?(current_user) %>
-                  <%= link_to '通報する', post_reports_path(@post.id), method: :post, class: "btn btn-danger btn-sm", data: { confirm: "不適切な表現の投稿として通報しますか？" } %>
+                  <%= link_to '通報する', post_reports_path(@post), method: :post, class: "btn btn-danger btn-sm", data: { confirm: "不適切な表現の投稿として通報しますか？" } %>
                 <% end %>
               </div>
             </div>
