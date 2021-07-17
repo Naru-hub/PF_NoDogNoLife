@@ -3,10 +3,15 @@ class Post < ApplicationRecord
   belongs_to :category
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+  has_many :reports, dependent: :destroy
+
   # いいね機能の定義、存在していればtrue、存在していなければfalseを返す
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
+  end
+
+  def reported_by?(user)
+    reports.where(user_id: user.id).empty?
   end
 
   attachment :image

@@ -40,7 +40,7 @@
             <% if @user.id == current_user.id %>
               <tr>
                 <td style="width: 40%"><%= link_to "投稿編集", edit_post_path(@post), class: "btn btn-success" %></td>
-                <td style="width: 60%"><%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %></td>
+                <td style="width: 60%"><%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn btn-pink", data: { confirm: "本当に投稿を削除しますか？" } %></td>
               </tr>
             <% end %>
           </table>
@@ -64,10 +64,8 @@
           <% if @user.id != current_user.id %>
             <div class="row">
               <div class="col-md-3 offset-9">
-                <% if @post.report %>
-                  <%= link_to '通報を戻す', post_path(@post.id, post: {report: false}), method: :put, class: "btn btn-danger btn-sm" %>
-                <% else %>
-                  <%= link_to '通報する', post_path(@post.id, post: {report: true}), method: :put, class: "btn btn-danger btn-sm" %>
+                <% if @post.reported_by?(current_user) %>
+                  <%= link_to '通報する', post_reports_path(@post), method: :post, class: "btn btn-danger btn-sm", data: { confirm: "不適切な表現の投稿として通報しますか？" } %>
                 <% end %>
               </div>
             </div>

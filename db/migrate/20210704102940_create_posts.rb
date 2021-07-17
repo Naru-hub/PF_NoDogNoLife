@@ -10,7 +10,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.float :latitude,      null: false
       t.float :longitude,     null: false
       t.integer :dog_size,    null: false, default: 0
-      t.boolean :report,      null: false,default: false
 
       t.timestamps
     end

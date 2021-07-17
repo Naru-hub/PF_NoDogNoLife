@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_050538) do
+ActiveRecord::Schema.define(version: 2021_07_15_145936) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2021_07_14_050538) do
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.integer "dog_size", default: 0, null: false
-    t.boolean "report", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,6 +74,13 @@ ActiveRecord::Schema.define(version: 2021_07_14_050538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

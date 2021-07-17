@@ -32,10 +32,11 @@
                 <% end %>
               </td>
               <td style="width: 15%">
-                <% if post.report == false %>
+
+                <% if post.reports.ids.empty? %>
                   <p class="text-success">問題無し</p>
                   <% else %>
-                  <p class="text-danger">問題あり</p>
+                  <p class="text-danger">通報数<%= post.reports.count %></p>
                 <% end %></td>
             </tr>
           </tbody>
