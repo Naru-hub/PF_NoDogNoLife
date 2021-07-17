@@ -37,7 +37,7 @@
             </tr>
             <tr>
               <td style="width: 40%"></td>
-              <td style="width: 60%"><%= link_to "投稿削除", admin_post_path(@post), method: :delete,class: "btn btn-danger", data: { confirm: "本当に投稿を削除しますか？" } %></td>
+              <td style="width: 60%"><%= link_to "投稿削除", admin_post_path(@post), method: :delete,class: "btn btn-pink", data: { confirm: "本当に投稿を削除しますか？" } %></td>
             </tr>
           </table>
 
@@ -51,7 +51,7 @@
               通報数 : <%= @post.reports.count %>
             </div>
             <div class="col-md-4 offset-5">
-              <% unless @post.reports.ids == nil %>
+              <% if @post.reports.ids.present? %>
                 <%= link_to '問題無しにする', admin_post_reports_path(post_id: @post.id ), method: :delete, class: "btn btn-success btn-sm" %>
               <% end %>
             </div>

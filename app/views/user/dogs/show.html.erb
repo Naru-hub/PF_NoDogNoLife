@@ -54,7 +54,7 @@
             <td><%= dog.name %>ちゃん</td>
             <td><%= dog.dog_type %></td>
             <td><%= dog.dog_size %></td>
-            <td><%= link_to "削除", dog_path(dog), method: :delete,class: "btn btn-danger", data: { confirm: "本当にワンちゃん情報を削除しますか？" } %></td>
+            <td><%= link_to "削除", dog_path(dog), method: :delete,class: "btn btn-pink", data: { confirm: "本当にワンちゃん情報を削除しますか？" } %></td>
           </tr>
         <% end %>
       </tbody>
