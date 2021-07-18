@@ -2,48 +2,49 @@
 <div class="row">
   <div class="col-md-12 my-2">
     <h4 class="my-2">投稿一覧</h4>
-      <%= link_to "降順", admin_posts_path(sort: :desc) %>
-      <%= link_to "昇順", admin_posts_path(sort: :asc) %>
-      <table class="table my-5">
-        <thead>
-          <tr>
-            <th>image</th>
-            <th>place</th>
-            <th>date</th>
-            <th>name</th>
-            <th>is_deleted</th>
-            <th>report</th>
-          </tr>
-        </thead>
-        <% @posts.each do |post| %>
-          <tbody>
+      <%= link_to "通報ありの投稿を多い順で表示", admin_posts_path(order: :desc) %>｜
+      <%= link_to "通報ありの投稿を少ない順で表示", admin_posts_path(order: :asc) %>｜
+      <%= link_to "投稿すべてを表示", admin_posts_path %>
+        <table class="table my-5">
+          <thead>
             <tr>
-              <td style="width: 15%">
-                <%= attachment_image_tag post, :image, fallback: "no_image.jpg",  size: "100x100" %>
-              </td>
-              <td style="width: 15%"><%= link_to post.place, admin_post_path(post) %></td>
-              <td style="width: 15%"><%= post.created_at.strftime('%Y/%m/%d') %></td>
-              <td style="width: 15%">
-                <%= link_to post.user.name, admin_user_path(post.user) %>
-              </td>
-              <td style="width: 15%">
-                <% if post.user.is_deleted == false %>
-                  <p class="text-success">有効</p>
-                  <% else %>
-                  <p class="text-danger">退会</p>
-                <% end %>
-              </td>
-              <td style="width: 15%">
-
-                <% if post.reports.ids.empty? %>
-                  <p class="text-success">問題無し</p>
-                  <% else %>
-                  <p class="text-danger">通報数<%= post.reports.count %></p>
-                <% end %></td>
+              <th>image</th>
+              <th>place</th>
+              <th>date</th>
+              <th>name</th>
+              <th>is_deleted</th>
+              <th>report</th>
             </tr>
-          </tbody>
-        <% end %>
-      </table>
+          </thead>
+          <% @posts.each do |post| %>
+            <tbody>
+              <tr>
+                <td style="width: 15%">
+                  <%= attachment_image_tag post, :image, fallback: "no_image.jpg",  size: "100x100" %>
+                </td>
+                <td style="width: 15%"><%= link_to post.place, admin_post_path(post) %></td>
+                <td style="width: 15%"><%= post.created_at.strftime('%Y/%m/%d') %></td>
+                <td style="width: 15%">
+                  <%= link_to post.user.name, admin_user_path(post.user) %>
+                </td>
+                <td style="width: 15%">
+                  <% if post.user.is_deleted == false %>
+                    <p class="text-success">有効</p>
+                    <% else %>
+                    <p class="text-danger">退会</p>
+                  <% end %>
+                </td>
+                <td style="width: 15%">
+                  <!--report（通報)がある場合とない場合の表示-->
+                  <% if post.reports.ids.empty? %>
+                    <p class="text-success">問題無し</p>
+                    <% else %>
+                    <p class="text-danger">通報数<%= post.reports.count %></p>
+                  <% end %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
     </div>
   </div>
 
