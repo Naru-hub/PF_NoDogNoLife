@@ -39,8 +39,8 @@
 
             <% if @user.id == current_user.id %>
               <tr>
-                <td style="width: 40%"><%= link_to "投稿編集", edit_post_path(@post), class: "btn btn-success" %></td>
-                <td style="width: 60%"><%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn btn-pink", data: { confirm: "本当に投稿を削除しますか？" } %></td>
+                <td style="width: 40%"><%= link_to "投稿編集", edit_post_path(@post), class: "btn-edit" %></td>
+                <td style="width: 60%"><%= link_to "投稿削除", post_path(@post), method: :delete,class: "btn-delete", data: { confirm: "本当に投稿を削除しますか？" } %></td>
               </tr>
             <% end %>
           </table>
@@ -58,14 +58,14 @@
                 <%= f.text_area :comment, rows:'3',placeholder: "コメントをここに", class: "form-control text_area" %>
             </div>
             <div class="form-group">
-              <%= f.submit "コメントする", class: "btn btn-info btn-sm" %>
+              <%= f.submit "コメントする", class: "btn-create btn-sm" %>
             </div>
           <% end %>
           <% if @user.id != current_user.id %>
             <div class="row">
               <div class="col-md-3 offset-9">
                 <% if @post.reported_by?(current_user) %>
-                  <%= link_to '通報する', post_reports_path(@post), method: :post, class: "btn btn-danger btn-sm", data: { confirm: "不適切な表現の投稿として通報しますか？" } %>
+                  <%= link_to '通報する', post_reports_path(@post), method: :post, class: "btn btn-delete btn-sm", data: { confirm: "不適切な表現の投稿として通報しますか？" } %>
                 <% end %>
               </div>
             </div>

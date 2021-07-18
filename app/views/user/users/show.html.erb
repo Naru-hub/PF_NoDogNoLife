@@ -29,9 +29,9 @@
 
         <% if @user != current_user %>
           <% if current_user.following?(@user) %>
-              <div class="col-md-3"><%= link_to "フォロー解除", user_relationships_path(user_id: @user.id), method: :delete, class: "btn btn-primary btn-sm" %></div>
+              <div class="col-md-3"><%= link_to "フォロー解除", user_relationships_path(user_id: @user.id), method: :delete, class: "btn-create btn-sm" %></div>
           <% else %>
-              <div class="col-md-3"><%= link_to "フォローする", user_relationships_path(user_id: @user.id), method: :post, class: "btn btn-success btn-sm" %></div>
+              <div class="col-md-3"><%= link_to "フォローする", user_relationships_path(user_id: @user.id), method: :post, class: "btn-create btn-sm" %></div>
           <% end %>
         <% end %>
     </div>
