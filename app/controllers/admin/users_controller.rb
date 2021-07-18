@@ -3,13 +3,12 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @reports = @user.reports.Post.find(post_id: post.id)
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admin_posts_path
+      redirect_to admin_posts_path, notice: "userの退会情報を更新しました"
     end
   end
 

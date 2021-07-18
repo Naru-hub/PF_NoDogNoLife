@@ -1,6 +1,6 @@
 class  User::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  
+
 
   def index
     @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
@@ -45,7 +45,7 @@ class  User::PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, notice: "投稿を削除しました"
   end
 
   def search

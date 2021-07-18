@@ -1,31 +1,34 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
+
   def index
-    @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
+    # report（通報)があったpost(投稿)だけを多い順で並べる
+    if params[:order] == 'desc'
+      @posts = Post.joins(:reports).group(:post_id).order('count(post_id) desc').page(params[:page]).per(10)
+    # report（通報)があったpost(投稿)だけを少ない順で並べる
+    elsif params[:order] == 'asc'
+      @posts = Post.joins(:reports).group(:post_id).order('count(post_id) asc').page(params[:page]).per(10)
+    else
+    # すべての投稿を表示
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
   def show
     @post = Post.find(params[:id])
   end
 
-  def update
-    @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to admin_post_path(@post)
-  end
-
   def destroy
     post = Post.find(params[:id])
-    post.destroy
-    redirect_to admin_posts_path
+    if post.destroy
+      redirect_to admin_posts_path, notice: "投稿を削除しました"
+    end  
   end
-
 
   private
 
   def post_params
     params.require(:post).permit(:report)
   end
-
 
 end
