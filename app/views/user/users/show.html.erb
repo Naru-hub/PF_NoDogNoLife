@@ -23,6 +23,8 @@
     <div class="row mb-4">
           <div class="col-md-3">名前</div>
           <div class="col-md-3"><%= @user.name %></div>
+  
+          <!--userが本人だったら表示する-->
         <% if @user.id == current_user.id %>
           <div class="col-md-3"><%= @user.email %></div>
         <% end %>

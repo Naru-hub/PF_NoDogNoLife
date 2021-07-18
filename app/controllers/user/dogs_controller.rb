@@ -11,18 +11,17 @@ class User::DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user_id = current_user.id
     if @dog.save
-      flash[:notice] = "ワンちゃんの登録が完了しました"
-      redirect_to dog_path(@dog)
+      redirect_to dog_path(@dog), notice: "わんちゃんの登録が完了しました"
     else
       @dogs = Dog.all
       render 'show'
     end
   end
-  
+
   def destroy
     dog = Dog.find(params[:id])
     dog.destroy
-    redirect_to request.referer
+    redirect_to request.referer, notice: "わんちゃんの情報を削除しました"
   end
 
   private
