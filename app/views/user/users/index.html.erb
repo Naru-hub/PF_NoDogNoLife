@@ -6,7 +6,7 @@
     <%= form_with(url: search_users_path,method: :get, local: true, class: "search-form") do |form| %>
       <%= form.text_field :keyword, placeholder: "犬種を入力", class: "search-input" %>
       <%= form.select :dog_size, Dog.dog_sizes.map {|k, v| [k, v]}, {} %>
-      <%= form.submit "検索", class: "search-btn" %>
+      <%= form.submit "検索", class: "btn search-btn btn-secondary btn-sm" %>
     <% end %>
   </div>
 </div>
@@ -16,20 +16,20 @@
       <table class="table table-borderless table-hover">
         <tbody>
           <% @users.each do |user| %>
-            <tr>
-              <td style="width: 40%">
-                <%= link_to user_path(user) do %>
-                  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "100x100", class: "rounded-circle" %>
-                <% end %>
-              </td>
-              <td style="width: 30%">
-                <%= user.name %>
-              </td>
-              <td style="width: 30%">
-                投稿数 <%= user.posts.count %>
-              </td>
-              <td></td>
-            </tr>
+              <tr>
+                <td style="width: 40%">
+                  <%= link_to user_path(user) do %>
+                    <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "100x100", class: "rounded-circle" %>
+                  <% end %>
+                </td>
+                <td style="width: 30%">
+                  <%= user.name %>
+                </td>
+                <td style="width: 30%">
+                  投稿数 <%= user.posts.count %>
+                </td>
+                <td></td>
+              </tr>
           <% end %>
         </tbody>
       </table>
