@@ -50,5 +50,5 @@ https://docs.google.com/spreadsheets/d/1xun-Cx3w5umzC0Hvg_1TxiT3CvfDFtFzyEZ3_OXC
 ## 使用素材
 
 - ロゴ素材<a href="https://www.designevo.com/jp/" title="無料オンラインロゴメーカー">DesignEvo</a>
-
+- 写真素材 O-DAN https://o-dan.net/ja/
 
