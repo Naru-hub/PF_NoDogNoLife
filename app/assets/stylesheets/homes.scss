@@ -32,3 +32,29 @@
 .top-text {
   background-color: rgba( 0, 0, 0, 0.5);
 }
+
+
+// Topページ、Aboutページのタイトルの動き
+@keyframes titleAnimation {
+  0% {
+    letter-spacing: 0.3em;
+    opacity: 0;
+  }
+}
+
+.title {
+    white-space: nowrap;
+    animation: titleAnimation 1.8s;
+  }
+
+// Aboutページimageの動き
+.animationTarget.view {
+  opacity: 0;
+  transform: none;
+}
+
+.animationTarget.view {
+  opacity: 1;
+  transform: translateY(30px);
+  transition: 3s;
+}
