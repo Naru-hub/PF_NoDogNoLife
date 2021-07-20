@@ -1,6 +1,5 @@
   <!--投稿一覧-->
   <% posts.each do |post| %>
-    <% if post.user.is_deleted == false %>
       <div class="col">
         <div class="card-link my-3">
           <div class="card my-3 mx-2">
@@ -23,5 +22,4 @@
           </div>
         </div>
       </div>
-    <% end %>
   <% end %>
