@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   patch 'users/out' => 'users#out'
   resources :posts, only: [:index, :show, :destroy, :update]
   resources :users, only: [:show, :update ]
-  resources :categories, only: [:index, :create, :destroy]
+  resources :categories, only: [:index, :create, :edit, :update]
   end
 
    # user関連

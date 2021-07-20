@@ -1,8 +1,10 @@
 <div class="row my-5">
   <div class="col-md-3 offset-1 my-5">
+    <%= render 'layouts/errors', obj: @category %>
+    <h3>カテゴリー登録</h3>
     <%= form_with model: [:admin, @category], local: true do |f| %>
       <div class="form-group my-5">
-        <h4 class="my-5">カテゴリー名</h4>
+        <h4 class="mt-5 mb-4">カテゴリー名</h4>
           <%= f.text_field :name, class: "form-control my-3" %>
           <%= f.submit '新規登録', class: 'btn btn-create my-3' %>
       </div>  
@@ -19,7 +21,7 @@
       <tr>
         <td></td>
         <td><%= category.name %></td>
-        <td><%= link_to "削除する", admin_category_path(category), method: :delete, class: 'btn btn-delete btn-sm', data: { confirm: "本当にカテゴリー名を削除しますか？" } %></td>
+        <td><%= link_to "編集", edit_admin_category_path(category),class: 'btn btn-edit btn-sm' %></td>
       </tr>    
         <% end %>
     </table>    
