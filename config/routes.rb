@@ -44,7 +44,7 @@ Rails.application.routes.draw do
         get :search
         end
       end
-
+    resources :notifications, only: [:index]
     resources :dogs, only: [:show,  :create, :destroy]
   end
 

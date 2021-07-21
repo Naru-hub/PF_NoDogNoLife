@@ -28,6 +28,9 @@
                   <li>
                     <%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-white" %>
                   </li>
+                  <li>
+                    <%= render 'layouts/bell.html' %>
+                  </li>  
                 <% elsif admin_signed_in? %>
                   <li>
                     <%= link_to "Category", admin_categories_path, class: "fas fa-edit nav-link text-white" %>
