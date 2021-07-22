@@ -27,10 +27,11 @@
                 <%= attachment_image_tag visitor, :profile_image, fallback: "no_image.jpg", size: "80x80", class: "rounded-circle" %>
                 <strong><%= notification.post.user.name + 'さんの投稿' %></strong>
               <% end %>
-            </div>   
+            </div> 
+        <% end %> 
             <div class="col-md-6 mt-1"><%= "にコメントしました" %></div>
           </span>
-        <% end %>
+        
         <div class="col-md-6">
           <p class="text-muted.mb-0">
             <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
