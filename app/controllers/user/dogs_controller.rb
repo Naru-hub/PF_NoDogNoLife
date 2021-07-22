@@ -13,7 +13,8 @@ class User::DogsController < ApplicationController
     if @dog.save
       redirect_to dog_path(@dog), notice: "わんちゃんの登録が完了しました"
     else
-      @dogs = Dog.all
+      @user = current_user
+      @dogs = @user.dogs
       render 'show'
     end
   end

@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :email, uniqueness: true
-    validates :name
+    validates :name, length: { maximum: 20 }
   end
 
   # 自分がフォローされる（被フォロー）
@@ -63,16 +63,16 @@ class User < ApplicationRecord
       user.name = "ゲスト"
     end
   end
-  
+
   # 退会済みのユーザーが同じアカウントでログイン出来ないように制約、is_deletedがfalseならtrueを返す
   def active_for_authentication?
     super && (is_deleted == false)
   end
-  
+
   # 通知機能
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-  
+
   def create_notification_follow!(current_user, visited_id)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, visited_id, 'follow'])
     if temp.blank?
