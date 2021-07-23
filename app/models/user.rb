@@ -74,7 +74,9 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   def create_notification_follow!(current_user, visited_id)
+    # すでに「フォローされているか」されているか検索
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, visited_id, 'follow'])
+    # フォローされていない場合のみ、通知レコードを作成
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: visited_id,
