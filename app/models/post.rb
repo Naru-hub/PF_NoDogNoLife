@@ -19,6 +19,7 @@ class Post < ApplicationRecord
 
   enum dog_size: {"小型犬":0, "中型犬":1, "大型犬":2, "超大型犬":3 }
 
+  # 住所と場所の検索
   def self.search(search)
     if search != ""
       @posts = Post.where("address LIKE? OR place LIKE?", "%#{search}%", "%#{search}%")
@@ -30,11 +31,10 @@ class Post < ApplicationRecord
   # バリデーション
   with_options presence: true do
     validates :place
-    validates :introduction
+    validates :introduction, length: { maximum: 1000 }
     validates :address
     validates :latitude
     validates :longitude
-    validates :dog_size
   end
 
   def create_notification_like!(current_user)
