@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-md-10 col-lg-3 offset-md-2 my-5">
+  <div class="col-md-10 col-lg-3 offset-md-1 my-5">
     <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "300x300", class: "rounded-circle" %>
       <% if @user == current_user %>
         <div class="row mt-5">
@@ -19,11 +19,11 @@
         </div>
       <% end %>
   </div>
-  <div class="col-md-8 col-lg-5 offset-md-1 my-5">
+  <div class="col-md-8 col-lg-6 offset-md-1 my-5 pt-lg-3">
     <div class="row mb-4">
           <div class="col-md-3">名前</div>
           <div class="col-md-3"><%= @user.name %></div>
-  
+
           <!--userが本人だったら表示する-->
         <% if @user.id == current_user.id %>
           <div class="col-md-3"><%= @user.email %></div>

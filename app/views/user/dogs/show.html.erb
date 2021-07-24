@@ -1,10 +1,10 @@
-<div class="row my-5">
-  <div class="col-md-5 offset-1 my-5">
+<div class="row my-5 ml-2">
+  <div class="col-md-8 offset-md-2 col-lg-5 offset-lg-0 my-5">
     <h3>ワンちゃん登録フォーム</h3>
       <%= render 'layouts/errors', obj: @dog %>
       <%= form_with model: @dog, local:true do |f| %>
         <div class="row">
-          <div class="col-7 mt-4">
+          <div class="col-md-7 mt-4">
             <div class="form-group">
               <h4 class="my-4">ワンちゃんの名前</h4>
               <%= f.text_field :name, class: "form-control" %>
@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-7">
+          <div class="col-md-7">
             <div class="form-group">
               <h4 class="my-4">犬種</h4>
               <%= f.text_field :dog_type, class: "form-control" %>
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-7">
+          <div class="col-md-7">
             <div class="form-group">
               <h4 class="my-4">犬のサイズ</h4>
               <%= f.select :dog_size, Post.dog_sizes.keys.map {|k| [k, k]}, {}, { class: 'form-control', style: 'margin-bottom: 15px;', data: {} } %>
@@ -28,19 +28,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-7">
+          <div class="col-md-7">
             <div class="form-group my-4">
                 <%= f.submit "登録", class: "btn-create mt-3" %>
             </div>
           </div>
-          <div class="col-7">
+          <div class="col-md-7">
             <%= link_to "Mypageへ", user_path(@user), class: "btn btn-edit my-5" %>
           </div>
         </div>
       <% end %>
   </div>
 
-  <div class="col-6 my-5">
+  <div class="col-md-8 offset-md-1 col-lg-7 offset-lg-0  my-5">
     <table class="table">
       <thead class="dog-index-thead">
         <tr>
