@@ -3,8 +3,10 @@
     <% post.post_comments.each do |post_comment| %>
       <tr>
         <td><%= post_comment.user.name %></td>
-        <td><%= post_comment.comment %></td>
         <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+      </tr> 
+      <tr>
+        <td><%= post_comment.comment %></td>
         <% if post_comment.user == current_user || admin_signed_in? %>
           <td>
             <%= link_to "削除",  post_post_comment_path(post_id: post.id, id: post_comment.id ), remote: true, method: :delete, class: "btn btn-delete btn-sm" %>
