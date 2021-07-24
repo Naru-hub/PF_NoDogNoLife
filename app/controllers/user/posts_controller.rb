@@ -3,7 +3,7 @@ class  User::PostsController < ApplicationController
 
 
   def index
-    @posts = Post.joins(:user).where(users: {is_deleted: false}).order(created_at: :desc).page(params[:page]).per(10)
+    @posts = Post.joins(:user).where(users: {is_deleted: false}).order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def new
@@ -49,7 +49,7 @@ class  User::PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.joins(:user).where(users: {is_deleted: false}).search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(10)
+    @posts = Post.joins(:user).where(users: {is_deleted: false}).search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(12)
     if params[:category_id].present?
       @posts = @posts.where(category_id: params[:category_id])
     end
