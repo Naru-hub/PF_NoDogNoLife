@@ -1,4 +1,4 @@
-class  User::UsersController < ApplicationController
+class User::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
@@ -21,16 +21,15 @@ class  User::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-     redirect_to user_path(@user), notice: "user情報の更新に成功しました。"
+      redirect_to user_path(@user), notice: "user情報の更新に成功しました。"
     else
-     render :edit
+      render :edit
     end
   end
 
   def search
     @users = User.search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(6)
   end
-
 
   def confirm
   end
@@ -45,8 +44,8 @@ class  User::UsersController < ApplicationController
   end
 
   private
-def user_params
-  params.require(:user).permit(:email, :name, :profile_image, :is_deleted)
-end
-
+  
+  def user_params
+    params.require(:user).permit(:email, :name, :profile_image, :is_deleted)
+  end
 end

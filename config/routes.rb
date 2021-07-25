@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # adminログイン
   devise_for :admins, controllers: {
-  sessions: 'admins/sessions'
+    sessions: 'admins/sessions'
   }
 
   # userログインサインアップ
   devise_for :users, :controllers => {
-  :registrations => "users/registrations"
+    :registrations => "users/registrations"
   }
 
   # ゲストログイン
@@ -16,17 +16,16 @@ Rails.application.routes.draw do
 
   # 管理者関連
   namespace :admin do
-  patch 'users/out' => 'users#out'
-  resources :posts, only: [:index, :show, :destroy, :update]
-  resources :users, only: [:show, :update ]
-  resources :categories, only: [:index, :create, :edit, :update]
+    patch 'users/out' => 'users#out'
+    resources :posts, only: [:index, :show, :destroy, :update]
+    resources :users, only: [:show, :update]
+    resources :categories, only: [:index, :create, :edit, :update]
   end
 
-   # user関連
+  # user関連
   scope module: :user do
     get 'users/confirm' => 'users#confirm', as: 'confirm'
     patch 'users/out' => 'users#out', as: 'out'
-
     resources :users, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
@@ -42,10 +41,11 @@ Rails.application.routes.draw do
       resource :reports, only: [:create]
       collection do
         get :search
-        end
       end
+    end
+    
     resources :notifications, only: [:index]
-    resources :dogs, only: [:show,  :create, :destroy]
+    resources :dogs, only: [:show, :create, :destroy]
   end
 
   # top関連

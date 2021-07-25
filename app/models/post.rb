@@ -17,7 +17,7 @@ class Post < ApplicationRecord
 
   attachment :image
 
-  enum dog_size: {"小型犬":0, "中型犬":1, "大型犬":2, "超大型犬":3 }
+  enum dog_size: { "小型犬": 0, "中型犬": 1, "大型犬": 2, "超大型犬": 3 }
 
   # 住所と場所の検索
   def self.search(search)
@@ -55,9 +55,8 @@ class Post < ApplicationRecord
     end
   end
 
-
   # コメント機能のメソッド
- def create_notification_post_comment!(current_user, post_comment_id)
+  def create_notification_post_comment!(current_user, post_comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
@@ -81,7 +80,4 @@ class Post < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-
 end
-
-

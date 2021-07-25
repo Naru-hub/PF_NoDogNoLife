@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-
   def guest_sign_in
     user = User.guest
     sign_in user
@@ -37,7 +36,7 @@ class Users::SessionsController < Devise::SessionsController
   # 会員の論理削除の記述。退会後は、同じアカウントで利用不可
   def reject_user
     @user = User.find_by(email: params[:user][:email].downcase)
-    if @user 
+    if @user
       if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == false)
         flash[:notice] = "このアカウントは退会済みです。再度ご登録をしてご利用ください。"
         redirect_to new_user_registration_path

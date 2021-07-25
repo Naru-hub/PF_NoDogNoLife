@@ -1,6 +1,5 @@
-class  User::PostsController < ApplicationController
+class User::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-
 
   def index
     @posts = Post.joins(:user).where(users: {is_deleted: false}).order(created_at: :desc).page(params[:page]).per(12)
@@ -63,5 +62,4 @@ class  User::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :category_id, :place, :address, :introduction, :dog_size, :latitude, :longitude, :report)
   end
-
 end

@@ -1,4 +1,4 @@
-class  User::RelationshipsController < ApplicationController
+class User::RelationshipsController < ApplicationController
   before_action :authenticate_user!
 
   # フォロー機能を作成・保存・削除する
@@ -16,13 +16,12 @@ class  User::RelationshipsController < ApplicationController
 
   # フォロー・フォロワー一覧を表示する
   def followings
-     user = User.find(params[:user_id])
-     @users = user.followings
+    user = User.find(params[:user_id])
+    @users = user.followings
   end
 
   def followers
-     user = User.find(params[:user_id])
-     @users = user.followers
+    user = User.find(params[:user_id])
+    @users = user.followers
   end
-
 end
