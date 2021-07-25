@@ -2,13 +2,13 @@ class  User::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.order(created_at: :desc).page(params[:page]).per(6)
+    @users = User.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
     @user = User.find(params[:id])
     @dogs = @user.dogs
-    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(3)
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def edit

@@ -1,62 +1,70 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <%= link_to image_tag('logo.jpg', class: 'icon'), root_path %>
-      <div class="container">
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-           </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                <% unless admin_signed_in? %>
-                  <li>
-                    <%= link_to "PostIndex", posts_path, class: "fas fa-dog nav-link text-white" %>
-                  </li>
-                <% end %>
-                <% if user_signed_in? %>
-                  <li>
-                    <%= link_to "PostNew", new_post_path, class: "fas fa-pen-nib nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "UserIndex", users_path, class: "fas fa-users nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "MyPage", user_path(current_user), class: "far fa-smile nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "MyDog", dog_path(current_user.dogs), class: "fas fa-paw nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= render 'layouts/bell.html' %>
-                  </li>  
-                <% elsif admin_signed_in? %>
-                  <li>
-                    <%= link_to "Category", admin_categories_path, class: "fas fa-edit nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "PostIndex", admin_posts_path, class: "fas fa-dog nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "LogOut", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-white" %>
-                  </li>
-                <% else %>
-                  <li>
-                    <%= link_to "About", about_path, class: "fas fa-paw nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "SignUp", new_user_registration_path, class: "fas fa-user-plus nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to "LogIn", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-white" %>
-                  </li>
-                  <li>
-                    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "fas fa-user-tie nav-link text-white" %>
-                  </li>
-                <% end %>
-              </ul>
-          </div>
+        </button>
+        <%= link_to image_tag('logo.jpg', class: 'icon'), root_path, class: "navbar-brand mx-auto" %>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav">
+            <li class="d-block d-lg-none">
+              <%= render 'layouts/bell.html' %>
+            </li>
+          </ul>
+        <% end %>
+        
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% unless admin_signed_in? %>
+              <li>
+                <%= link_to "PostIndex", posts_path, class: "fas fa-dog nav-link text-white" %>
+              </li>
+            <% end %>
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "PostNew", new_post_path, class: "fas fa-pen-nib nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "UserIndex", users_path, class: "fas fa-users nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "MyPage", user_path(current_user), class: "far fa-smile nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "MyDog", dog_path(current_user.dogs), class: "fas fa-paw nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-white" %>
+              </li>
+              <li class="d-none d-lg-block">
+                <%= render 'layouts/bell.html' %>
+              </li>
+            <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to "Category", admin_categories_path, class: "fas fa-edit nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "PostIndex", admin_posts_path, class: "fas fa-dog nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "LogOut", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-white" %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "About", about_path, class: "fas fa-paw nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "SignUp", new_user_registration_path, class: "fas fa-user-plus nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "LogIn", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "fas fa-user-tie nav-link text-white" %>
+              </li>
+            <% end %>
+          </ul>
       </div>
+
     </nav>
   </header>
