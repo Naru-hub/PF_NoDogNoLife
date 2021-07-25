@@ -12,7 +12,6 @@
   background-position: center;
   height: 90vh;//topの画像フルスクリーン
   background-image: image-url('background.jpg');
-
 }
 
 .title {
@@ -45,6 +44,7 @@
 .title {
     white-space: nowrap;
     animation: titleAnimation 1.8s;
+    font-family: 'RocknRoll One', sans-serif;
   }
 
 // Aboutページimageの動き
