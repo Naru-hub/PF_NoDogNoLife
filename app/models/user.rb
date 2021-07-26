@@ -12,10 +12,10 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-# user一覧にあるuserが飼っている犬種と大きさを検索する
+  # user一覧にあるuserが飼っている犬種と大きさを検索する
   def self.search(search)
     if search != ""
-      User.joins(:dogs).where("dogs.dog_size LIKE ? OR dogs.dog_type LIKE ?", "%#{search}%", "%#{search}%")
+      User.joins(:dogs).where("dogs.dog_size LIKE ? OR dogs.dog_type LIKE ?", "%#{search}%","%#{search}%")
     else
       User.all
     end
@@ -28,9 +28,9 @@ class User < ApplicationRecord
 
   # 自分がフォローされる（被フォロー）
   has_many :reverse_of_relationships,
-                          class_name: "Relationship",
-                          foreign_key: "followed_id",
-                          dependent: :destroy
+                                    class_name: "Relationship",
+                                    foreign_key: "followed_id",
+                                    dependent: :destroy
   # 自分がフォローする（与フォロー）
   has_many :relationships,
                           class_name: "Relationship",
@@ -75,7 +75,7 @@ class User < ApplicationRecord
 
   def create_notification_follow!(current_user, visited_id)
     # すでに「フォローされているか」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, visited_id, 'follow'])
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ", current_user.id, visited_id, 'follow'])
     # フォローされていない場合のみ、通知レコードを作成
     if temp.blank?
       notification = current_user.active_notifications.new(

@@ -16,7 +16,6 @@
       <table class="table table-borderless table-hover">
         <tbody>
           <% @users.each do |user| %>
-            <% if user.is_deleted == false %>
               <tr>
                 <td style="width: 40%">
                   <%= link_to user_path(user) do %>
@@ -31,7 +30,6 @@
                 </td>
                 <td></td>
               </tr>
-            <% end %>
           <% end %>
         </tbody>
       </table>

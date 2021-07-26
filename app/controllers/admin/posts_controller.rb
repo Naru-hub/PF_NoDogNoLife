@@ -8,8 +8,8 @@ class Admin::PostsController < ApplicationController
     # report（通報)があったpost(投稿)だけを少ない順で並べる
     elsif params[:order] == 'asc'
       @posts = Post.joins(:reports).group(:post_id).order('count(post_id) asc').page(params[:page]).per(10)
+    # すべての投稿を表示  
     else
-    # すべての投稿を表示
       @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
     end
   end
@@ -22,7 +22,7 @@ class Admin::PostsController < ApplicationController
     post = Post.find(params[:id])
     if post.destroy
       redirect_to admin_posts_path, notice: "投稿を削除しました"
-    end  
+    end
   end
 
   private
@@ -30,5 +30,4 @@ class Admin::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:report)
   end
-
 end

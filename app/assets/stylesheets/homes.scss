@@ -48,13 +48,13 @@
   }
 
 // Aboutページimageの動き
-.animationTarget.view {
+.animationTarget {
   opacity: 0;
-  transform: none;
+  transform: translateY(30px);
+  transition: 1.5s;
 }
 
 .animationTarget.view {
   opacity: 1;
-  transform: translateY(30px);
-  transition: 1.5s;
+  transform: none;
 }
