@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # user一覧にあるuserが飼っている犬種と大きさを検索する
   def self.search(search)
     if search != ""
-      User.joins(:dogs).where("dogs.dog_size LIKE ? OR dogs.dog_type LIKE ?", "%#{search}%", "%#{search}%")
+      User.joins(:dogs).where("dogs.dog_size LIKE ? OR dogs.dog_type LIKE ?", "%#{search}%","%#{search}%")
     else
       User.all
     end
