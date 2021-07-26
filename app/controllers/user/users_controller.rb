@@ -2,7 +2,7 @@ class User::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.order(created_at: :desc).page(params[:page]).per(10)
+    @users = User.where(is_deleted: false).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
@@ -28,7 +28,7 @@ class User::UsersController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(6)
+    @users = User.where(is_deleted: false).search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def confirm
@@ -44,7 +44,7 @@ class User::UsersController < ApplicationController
   end
 
   private
-  
+
   def user_params
     params.require(:user).permit(:email, :name, :profile_image, :is_deleted)
   end

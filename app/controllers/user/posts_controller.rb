@@ -48,7 +48,7 @@ class User::PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.joins(:user).where(users: {is_deleted: false}).search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(12)
+    @posts = Post.joins(:user).where(users: { is_deleted: false }).search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(12)
     if params[:category_id].present?
       @posts = @posts.where(category_id: params[:category_id])
     end
@@ -60,6 +60,7 @@ class User::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :category_id, :place, :address, :introduction, :dog_size, :latitude, :longitude, :report)
+    params.require(:post).permit(:image, :category_id, :place, :address, :introduction, :dog_size,
+                                :latitude, :longitude, :report)
   end
 end
