@@ -1,48 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'バリデーションのテスト' do
-    subject { user.valid? }
+  it "名前、メール、パスワードがある場合、有効である" do
+    user = FactoryBot.build(:user)
+    expect(user).to be_valid
+  end
 
-    let!(:other_user) { create(:user) }
-    let(:user) { build(:user) }
+  it "名がない場合、無効である" do
+    user = FactoryBot.build(:user, name: nil)
+    user.valid?
+    expect(user.errors[:name]).to include("can't be blank")
+  end
 
-    context 'nameカラム' do
-      it '空欄でないこと' do
-        user.name = ''
-        is_expected.to eq false
-      end
-      it '2文字以上であること: 1文字は×' do
-        user.name = Faker::Lorem.characters(number: 1)
-        is_expected.to eq false
-      end
-      it '2文字以上であること: 2文字は〇' do
-        user.name = Faker::Lorem.characters(number: 2)
-        is_expected.to eq true
-      end
-      it '20文字以下であること: 20文字は〇' do
-        user.name = Faker::Lorem.characters(number: 20)
-        is_expected.to eq true
-      end
-      it '20文字以下であること: 21文字は×' do
-        user.name = Faker::Lorem.characters(number: 21)
-        is_expected.to eq false
-      end
-    end
+  it "メールアドレスがない場合、無効である"  do
+    user = FactoryBot.build(:user, email: nil)
+    user.valid?
+    expect(user.errors[:email]).to include("can't be blank")
+  end
 
-    describe 'アソシエーションのテスト' do
-      context 'Postモデルとの関係' do
-        it '1:Nとなっている' do
-          expect(User.reflect_on_association(:posts).macro).to eq :has_many
-        end
-      end
-    end
-
-    describe 'アソシエーションのテスト' do
-      context 'Dogモデルとの関係' do
-        it '1:Nとなっている' do
-          expect(User.reflect_on_association(:Dogs).macro).to eq :has_many
-        end
+  describe 'アソシエーションのテスト' do
+    context 'Postモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:posts).macro).to eq :has_many
       end
     end
   end
