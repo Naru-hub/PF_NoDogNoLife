@@ -85,7 +85,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
           expect(current_path).to eq '/posts/' + post.id.to_s
         end
         it 'ユーザ画像・名前のリンク先が正しい' do
-          expect(page).to have_link book.user.name, href: user_path(post.user)
+          expect(page).to have_link post.user.name, href: user_path(post.user)
         end
         it '投稿のplaceが表示される' do
           expect(page).to have_content post.place
@@ -96,13 +96,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
         it '投稿の編集リンクが表示される' do
           expect(page).to have_link '投稿編集', href: edit_post_path(post)
         end
-
-        it "緯度のフォ-ムが表示されるか"
-        it "newの時のdefaultの値が正しいか" do
-          expect(フォームの値をとる).to eq(default_value)
-        end
-
-        it "数字だけか"
 
         it '投稿の削除リンクが表示される' do
           expect(page).to have_link '投稿削除', href: post_path(post)
@@ -150,6 +143,16 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '住所フォームに値が入っていない' do
         expect(find_field('post[address]').text).to be_blank
       end
+      
+      it "緯度のフォ-ムが表示されるか" do
+        expect(page).to have_field 'post[latitude]'
+      end  
+      it "newの時のdefaultの値が正しいか" do
+        expect find_field('post[introduction]').to eq(default_value)
+      end
+
+        it "数字だけか"
+
       it '説明フォームが表示される' do
         expect(page).to have_field 'post[introduction]'
       end

@@ -6,7 +6,9 @@ RSpec.describe Post, type: :model do
   
     let(:user) { create(:user) }
     let!(:post) { build(:post, user_id: user.id) }
-  
+    let(:favorite){ build(:favorite, user_id: user.id, post_id: post.id)}
+    let(:post_comment){ build(:post_comment, user_id: user.id, post_id: post.id)}
+    
     context 'placeカラム' do
       it '空欄でないこと' do
         post.place = ''
@@ -33,6 +35,22 @@ RSpec.describe Post, type: :model do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
         expect(Post.reflect_on_association(:user).macro).to eq :belongs_to
+      end
+    end
+  end
+  
+  describe 'アソシエーションのテスト' do
+    context 'Favoriteモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Post.reflect_on_association(:favorites).macro).to eq :has_many
+      end
+    end
+  end
+  
+  describe 'アソシエーションのテスト' do
+    context 'PostCommentモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Post.reflect_on_association(:post_comments).macro).to eq :has_many
       end
     end
   end

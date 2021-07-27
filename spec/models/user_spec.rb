@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  let(:favorite){ build(:favorite, user_id: user.id, post_id: post.id)}
+  let(:post_comment){ build(:post_comment, user_id: user.id, post_id: post.id)}
+  
   it "名前、メール、パスワードがある場合、有効である" do
     user = FactoryBot.build(:user)
     expect(user).to be_valid
@@ -22,6 +25,22 @@ RSpec.describe User, type: :model do
     context 'Postモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:posts).macro).to eq :has_many
+      end
+    end
+  end
+  
+  describe 'アソシエーションのテスト' do
+    context 'Favoriteモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:favorites).macro).to eq :has_many
+      end
+    end
+  end
+  
+  describe 'アソシエーションのテスト' do
+    context 'PostCommentモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:post_comments).macro).to eq :has_many
       end
     end
   end
