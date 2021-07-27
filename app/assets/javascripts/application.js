@@ -31,8 +31,11 @@ $(function () {
       const scroll = $(window).scrollTop();
       //ウィンドウの高さを取得
       const windowHeight = $(window).height();
+      // ターゲットまでスクロールするとフェードインする
+      if (scroll - 250 > targetElement - windowHeight){
         //クラスを付与
         $(this).addClass('view');
+      }
     });
   });
 });
