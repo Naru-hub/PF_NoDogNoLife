@@ -6,6 +6,7 @@
   padding: 0;
 }
 
+// top画像
 .back {
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,6 +47,12 @@
     animation: titleAnimation 1.8s;
     font-family: 'RocknRoll One', sans-serif;
   }
+  
+// Aboutのタイトルの文字の大きさ
+  .title-about {
+  font-size: 30px;
+}
+
 
 // Aboutページimageの動き
 .animationTarget {
