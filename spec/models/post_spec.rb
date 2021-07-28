@@ -21,6 +21,11 @@ RSpec.describe Post, type: :model do
         post.introduction = ''
         is_expected.to eq false
       end
+      
+      it '1000文字以下であること: 1001文字は×' do
+        post.introduction = Faker::Lorem.characters(number: 1001)
+        is_expected.to eq false
+      end
     end
     
     context 'addressカラム' do
