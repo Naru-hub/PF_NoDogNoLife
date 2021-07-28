@@ -13,9 +13,13 @@ class User < ApplicationRecord
   attachment :profile_image
 
   # user一覧にあるuserが飼っている犬種と大きさを検索する
-  def self.search(search)
-    if search != ""
-      User.joins(:dogs).where("dogs.dog_size LIKE ? OR dogs.dog_type LIKE ?", "%#{search}%","%#{search}%")
+  def self.search(dog_size, search)
+    if search != "" || dog_size != ""
+      if search != ""
+        User.joins(:dogs).where("dogs.dog_size = ? OR dogs.dog_type LIKE ?", "#{dog_size}","%#{search}%").distinct
+      else
+        User.joins(:dogs).where("dogs.dog_size = ? ", "#{dog_size}").distinct
+      end
     else
       User.all
     end

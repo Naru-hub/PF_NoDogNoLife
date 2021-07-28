@@ -28,7 +28,7 @@ class User::UsersController < ApplicationController
   end
 
   def search
-    @users = User.where(is_deleted: false).search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(6)
+    @users = User.where(is_deleted: false).search(params[:dog_size], params[:keyword]).order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def confirm
