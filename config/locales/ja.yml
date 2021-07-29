@@ -21,6 +21,7 @@ ja:
         longitude: "自動で経度が入るので住所"
       user:
         name: "名前"
+        email: "メールアドレス"
       dog:
         name: "名前"
         dog_type: "犬種"
