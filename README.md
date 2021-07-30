@@ -26,7 +26,8 @@
 - ワンちゃんを飼っていて引っ越ししたてで土地勘がない方がお散歩場所などを探せる
 
 ## 設計書
-- ER図![B9CAAAE7-43BC-4B9B-8B6C-71E7D38900ED_1_105_c](https://user-images.githubusercontent.com/81672054/127604116-ad7e5db9-a0b1-4b5a-89a3-79e3c039d892.jpeg)
+- ER図 
+![B9CAAAE7-43BC-4B9B-8B6C-71E7D38900ED_1_105_c](https://user-images.githubusercontent.com/81672054/127604116-ad7e5db9-a0b1-4b5a-89a3-79e3c039d892.jpeg)
 - アプリケーション詳細設計書![C3EE1E43-9D59-42A5-BA64-8A983642A8A7_1_105_c](https://user-images.githubusercontent.com/81672054/127601677-04adc3d0-fdb3-497c-8cd2-7876ae56b7ba.jpeg)
 
 - UI Flows 会員側https://app.diagrams.net/#G12A2_K3hUHovl--lIZRebhCKY5cMcbXGO
