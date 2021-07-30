@@ -1,11 +1,16 @@
  <footer>
-    <div class="container-fluid bg-dark">
+    <div class="bg-dark">
       <div class="row">
         <div class="mx-auto">
+          <p id="page-top">
+            <%= link_to "#", class:"top-link", data: {"turbolinks" => false} do %>
+              <img src="<%= asset_path('dog.jpg') %>" alt="">
+            <% end %>
+          </p>
           <div class="mx-auto pt-2 d-flex align-items-center">
             <p class="footer-text">© All rights reserved by HappyDog.Inc.</p>
           </div>
         </div>
       </div>
-    </div>  
+    </div>
  </footer>

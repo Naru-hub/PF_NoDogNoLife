@@ -24,7 +24,7 @@
  }
 
  .icon {
-  height: 45px;
+  height: 65px;
   margin: 0 30px;
  }
 
@@ -169,6 +169,7 @@ footer {
   border-bottom: none;
 }
 
+// 通知機能関連
 .n-circle {
   position: absolute;
   padding-left: 1rem;
@@ -179,4 +180,14 @@ footer {
 .fa-bell {
   color: #FFFFFF;
   margin-left: 10px;
+}
+
+// topスクロール
+#page-top {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+}
+#page-top img {
+  width: 70px;
 }

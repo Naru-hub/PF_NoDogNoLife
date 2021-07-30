@@ -42,5 +42,15 @@ $(function () {
 
 // フラッシュメッセージ
 $(function(){
-  $('.alert').fadeOut(4000);  //4秒かけて消えていく
+  $('.alert-success').fadeOut(4000);  //4秒かけて消えていく
+});
+
+// topスクロールのスピード
+$(document).on('turbolinks:load', function() {
+  $('#page-top a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
+  });
 });
