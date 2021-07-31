@@ -28,7 +28,8 @@
 ## 設計書
 - ER図 
 ![B9CAAAE7-43BC-4B9B-8B6C-71E7D38900ED_1_105_c](https://user-images.githubusercontent.com/81672054/127604116-ad7e5db9-a0b1-4b5a-89a3-79e3c039d892.jpeg)
-- アプリケーション詳細設計書![5E652296-2814-4604-A8FE-0D75DC8F89FC_1_105_c](https://user-images.githubusercontent.com/81672054/127617974-1fee8e4f-f0ae-42db-8de5-0c3101f465b0.jpeg)
+- アプリケーション詳細設計書![34F73299-FB68-4E22-BCF4-1A66146BFB4B_1_105_c](https://user-images.githubusercontent.com/81672054/127728373-dce5d2cd-e880-4283-9c19-bd5740b5fc2a.jpeg)
+
 
 - UI Flows 会員側![DEFEB986-90EA-464E-9F56-425A3D956086_1_105_c](https://user-images.githubusercontent.com/81672054/127632010-2c8accb2-8998-4025-bd60-4b5d95fef410.jpeg)
 
