@@ -33,7 +33,7 @@
 
 - UI Flows 会員側![DEFEB986-90EA-464E-9F56-425A3D956086_1_105_c](https://user-images.githubusercontent.com/81672054/127632010-2c8accb2-8998-4025-bd60-4b5d95fef410.jpeg)
 
-- UI Flows 管理者側https://app.diagrams.net/#G19aldmYfbeEIjtwuZu0cs2QGP4L6oXzhQ
+- UI Flows 管理者側![943D4D98-F517-466A-8BA4-DF7D206A3747_1_105_c](https://user-images.githubusercontent.com/81672054/127740454-c02dddd2-ab3d-4a44-8624-0dfeae746506.jpeg)
 - ワイヤーフレーム会員側https://app.diagrams.net/#G1qaM68_BD8T7NtSwDcwfILdiizMNMUoW6
 - ワイヤーフレーム管理者側https://app.diagrams.net/#G1OHVu1EuKzaTLxHLYwQ4va2VcCla28LEA
 
