@@ -35,7 +35,7 @@
 
 - UI Flows 管理者側![943D4D98-F517-466A-8BA4-DF7D206A3747_1_105_c](https://user-images.githubusercontent.com/81672054/127740454-c02dddd2-ab3d-4a44-8624-0dfeae746506.jpeg)
 - ワイヤーフレーム会員側https://app.diagrams.net/#G1qaM68_BD8T7NtSwDcwfILdiizMNMUoW6
-- ワイヤーフレーム管理者側https://app.diagrams.net/#G1OHVu1EuKzaTLxHLYwQ4va2VcCla28LEA
+- ワイヤーフレーム管理者側![803DD739-A2C7-41B1-B785-439C342EBC5F_1_201_a](https://user-images.githubusercontent.com/81672054/127771512-ec54af1b-de33-4cf2-8a9e-3c535c4d457a.jpeg)
 
 - 機能一覧https://docs.google.com/spreadsheets/d/1MrtOBrShOCMLyr1-SmaSzc0_QdPnpZT7dYT13yakbOs/edit?usp=sharing
 - テーブル定義書https://docs.google.com/spreadsheets/d/1hjwA1nsiRDuKQWgGooGXi8_SIeM5hs4N0SMtLFFnab4/edit#gid=1782002835
