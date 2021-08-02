@@ -34,7 +34,7 @@
 - UI Flows 会員側![DEFEB986-90EA-464E-9F56-425A3D956086_1_105_c](https://user-images.githubusercontent.com/81672054/127632010-2c8accb2-8998-4025-bd60-4b5d95fef410.jpeg)
 
 - UI Flows 管理者側![943D4D98-F517-466A-8BA4-DF7D206A3747_1_105_c](https://user-images.githubusercontent.com/81672054/127740454-c02dddd2-ab3d-4a44-8624-0dfeae746506.jpeg)
-- ワイヤーフレーム会員側https://app.diagrams.net/#G1qaM68_BD8T7NtSwDcwfILdiizMNMUoW6
+- ワイヤーフレーム会員側![43160866-6E01-4025-AD37-0D48F54DD665_1_105_c](https://user-images.githubusercontent.com/81672054/127862525-1ee9033c-bc6b-4609-bf80-c53392e8bc2e.jpeg)
 - ワイヤーフレーム管理者側![803DD739-A2C7-41B1-B785-439C342EBC5F_1_201_a](https://user-images.githubusercontent.com/81672054/127771512-ec54af1b-de33-4cf2-8a9e-3c535c4d457a.jpeg)
 
 - 機能一覧https://docs.google.com/spreadsheets/d/1MrtOBrShOCMLyr1-SmaSzc0_QdPnpZT7dYT13yakbOs/edit?usp=sharing
