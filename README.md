@@ -1,4 +1,5 @@
 # No Dog, No Life! (ワンちゃんOKな場所の情報共有サイト)
+<img width="1440" alt="スクリーンショット 2021-08-16 20 03 07" src="https://user-images.githubusercontent.com/81672054/129671782-51352829-a41e-4abe-bdb8-2887c42fa80f.png">
 
 ## 概要
 
