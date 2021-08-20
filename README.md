@@ -38,8 +38,8 @@
 - ワイヤーフレーム会員側![43160866-6E01-4025-AD37-0D48F54DD665_1_105_c](https://user-images.githubusercontent.com/81672054/127862525-1ee9033c-bc6b-4609-bf80-c53392e8bc2e.jpeg)
 - ワイヤーフレーム管理者側![803DD739-A2C7-41B1-B785-439C342EBC5F_1_201_a](https://user-images.githubusercontent.com/81672054/127771512-ec54af1b-de33-4cf2-8a9e-3c535c4d457a.jpeg)
 
-- 機能一覧https://docs.google.com/spreadsheets/d/1MrtOBrShOCMLyr1-SmaSzc0_QdPnpZT7dYT13yakbOs/edit?usp=sharing
-- テーブル定義書https://docs.google.com/spreadsheets/d/1hjwA1nsiRDuKQWgGooGXi8_SIeM5hs4N0SMtLFFnab4/edit#gid=1782002835
+- 機能一覧
+- テーブル定義書![image](https://user-images.githubusercontent.com/81672054/130197850-fadf8df9-df0f-4392-adc2-8539ed4a33fb.png)
 
 
 ## チャレンジ要素一覧
