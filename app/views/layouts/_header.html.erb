@@ -52,15 +52,7 @@
               <li>
                 <%= link_to "About", about_path, class: "fas fa-paw nav-link text-white" %>
               </li>
-              <li>
-                <%= link_to "SignUp", new_user_registration_path, 'data-turbolinks': false, class: "fas fa-user-plus nav-link text-white" %>
-              </li>
-              <li>
-                <%= link_to "LogIn", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-white" %>
-              </li>
-              <li>
-                <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "fas fa-user-tie nav-link text-white" %>
-              </li>
+  
             <% end %>
           </ul>
       </div>
