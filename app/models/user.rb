@@ -14,12 +14,12 @@ class User < ApplicationRecord
 
   # user一覧にあるuserが飼っている犬種と大きさを検索する
   def self.search(dog_size, search)
-    if search != "" || dog_size != ""
-      if search != ""
-        User.joins(:dogs).where("dogs.dog_size = ? OR dogs.dog_type LIKE ?", "#{dog_size}","%#{search}%").distinct
-      else
-        User.joins(:dogs).where("dogs.dog_size = ? ", "#{dog_size}").distinct
-      end
+    if search != "" && dog_size != ""
+      User.joins(:dogs).where("dogs.dog_size = ? and dogs.dog_type LIKE ?", "#{dog_size}","%#{search}%").distinct
+    elsif search != ""
+      User.joins(:dogs).where("dogs.dog_type LIKE ?","%#{search}%").distinct
+    elsif dog_size != ""
+      User.joins(:dogs).where("dogs.dog_size = ? ", "#{dog_size}").distinct
     else
       User.all
     end
