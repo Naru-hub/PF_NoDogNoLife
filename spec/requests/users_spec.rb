@@ -1,25 +1,44 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe "Users", type: :request do
-#   describe "GET /index" do
-#     it "returns http success" do
-#       get "/users/index"
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
+RSpec.describe "Users", type: :request do
 
-#   describe "GET /show" do
-#     it "returns http success" do
-#       get "/users/show"
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
+  describe "GET /users" do
+    let(:user) { create(:user) }
 
-#   describe "GET /edit" do
-#     it "returns http success" do
-#       get "/users/edit"
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
+    before do
+      sign_in user
+    end
 
-# end
+    it "returns http success" do
+      get '/users'
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET /show" do
+    let(:user) { create(:user) }
+
+    before do
+      sign_in user
+    end
+
+    it "returns http success" do
+      get "/users/#{user.id}"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET /edit" do
+    let(:user) { create(:user) }
+
+    before do
+      sign_in user
+    end
+
+    it "returns http success" do
+      get "/users/#{user.id}/edit"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+end
