@@ -19,6 +19,10 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     # driven_by :selenium_chrome_headless
     driven_by :rack_test
+    Capybara.default_host = 'http://localhost:8080'
+  end
+  config.before(:each, :type => :request) do
+    Capybara.default_host = 'http://localhost:8080'
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

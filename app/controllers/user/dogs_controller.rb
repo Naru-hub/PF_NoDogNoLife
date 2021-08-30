@@ -1,12 +1,12 @@
 class User::DogsController < ApplicationController
   before_action :authenticate_user!
 
-  def show
+  def dog_form
     @user = current_user
     @dogs = @user.dogs
     @dog = Dog.new
   end
-
+  
   def create
     @dog = Dog.new(dog_params)
     @dog.user_id = current_user.id

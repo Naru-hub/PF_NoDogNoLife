@@ -45,7 +45,8 @@ Rails.application.routes.draw do
     end
     
     resources :notifications, only: [:index]
-    resources :dogs, only: [:show, :create, :destroy]
+    get 'dogs/dog_form' => 'dogs#dog_form', as: 'dog_form'
+    resources :dogs, only: [:create, :destroy]
   end
 
   # top関連

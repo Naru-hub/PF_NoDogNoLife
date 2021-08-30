@@ -27,10 +27,10 @@
                 <%= link_to "User一覧", users_path, class: "fas fa-users nav-link text-white" %>
               </li>
               <li>
-                <%= link_to "マイページ", user_path(current_user), class: "far fa-smile nav-link text-white" %>
+                <%= link_to "マイページ", user_path(current_user), class: "fas fa-smile nav-link text-white" %>
               </li>
               <li>
-                <%= link_to "マイドッグ", dog_path(current_user.dogs), class: "fas fa-paw nav-link text-white" %>
+                <%= link_to "マイドッグ", dog_form_path, class: "fas fa-paw nav-link text-white" %>
               </li>
               <li>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-white" %>

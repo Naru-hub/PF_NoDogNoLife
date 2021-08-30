@@ -20,12 +20,12 @@ describe '[STEP1] ユーザログイン前のテスト' do
         LogIn_link = find_all('a')[4].native.inner_text
         expect(page).to have_link LogIn_link, href: new_user_session_path
       end
-      it 'SignUpリンクが表示される: 左上から4番目のリンクが「SignUp」である' do
-        SignUp_link = find_all('a')[3].native.inner_text
+      it 'SignUpリンクが表示される: 左上から6番目のリンクが「SignUp」である' do
+        SignUp_link = find_all('a')[5].native.inner_text
         expect(SignUp_link).to match(/signup/i)
       end
       it 'SignUpリンクの内容が正しい' do
-        SignUp_link = find_all('a')[3].native.inner_text
+        SignUp_link = find_all('a')[5].native.inner_text
         expect(page).to have_link SignUp_link, href: new_user_registration_path
       end
     end
@@ -53,21 +53,13 @@ describe '[STEP1] ユーザログイン前のテスト' do
         home_link_image = find_all('a')[0].find('img')
         expect(home_link_image[:src]).to match(/logo/i)
       end
-      it 'PostIndexリンクが表示される: 左上から2番目のリンクが「PostIndex」である' do
+      it 'PostIndexリンクが表示される: 左上から2番目のリンクが「投稿一覧」である' do
         PostIndex_link = find_all('a')[1].native.inner_text
-        expect(PostIndex_link).to match(/posti/i)
+        expect(PostIndex_link).to match("投稿一覧")
       end
-      it 'Aboutリンクが表示される: 左上から3番目のリンクが「About」である' do
+      it 'Aboutリンクが表示される: 左上から3番目のリンクが「アバウト」である' do
         About_link = find_all('a')[2].native.inner_text
-        expect(About_link).to match(/about/i)
-      end
-      it 'SignUpリンクが表示される: 左上から4番目のリンクが「SignUp」である' do
-        SignUp_link = find_all('a')[3].native.inner_text
-        expect(SignUp_link).to match(/signup/i)
-      end
-      it 'LogInリンクが表示される: 左上から5番目のリンクが「LogIn」である' do
-        LogIn_link = find_all('a')[4].native.inner_text
-        expect(LogIn_link).to match(/login/i)
+        expect(About_link).to match("アバウト")
       end
     end
 
@@ -75,10 +67,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       subject { current_path }
 
       it 'HAPPYDOGを押すと、トップ画面に遷移する' do
-        home_link = find_all('a')[0].native.inner_text
-        home_link = home_link.delete(' ')
-        home_link.gsub!(/\n/, '')
-        click_link home_link
+        find_all('a')[0].click
         is_expected.to eq '/'
       end
       it 'Aboutを押すと、アバウト画面に遷移する' do
@@ -86,18 +75,6 @@ describe '[STEP1] ユーザログイン前のテスト' do
         About_link = About_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link About_link
         is_expected.to eq '/about'
-      end
-      it 'SignUpを押すと、新規登録画面に遷移する' do
-        SignUp_link = find_all('a')[3].native.inner_text
-        SignUp_link = SignUp_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        click_link SignUp_link, match: :first
-        is_expected.to eq '/users/sign_up'
-      end
-      it 'LogInを押すと、ログイン画面に遷移する' do
-        LogIn_link = find_all('a')[4].native.inner_text
-        LogIn_link = LogIn_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        click_link LogIn_link, match: :first
-        is_expected.to eq '/users/sign_in'
       end
     end
   end
