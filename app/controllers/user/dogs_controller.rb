@@ -11,11 +11,11 @@ class User::DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user_id = current_user.id
     if @dog.save
-      redirect_to dog_path(@dog), notice: "わんちゃんの登録が完了しました"
+      redirect_to dog_form_path, notice: "わんちゃんの登録が完了しました"
     else
       @user = current_user
       @dogs = @user.dogs
-      render 'show'
+      render 'dog_form'
     end
   end
 
